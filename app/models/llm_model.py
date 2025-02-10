@@ -1,5 +1,6 @@
 class LLMModel:
     """Maneja la comunicación con la API de DeepSeek."""
+
     def __init__(self, chat):
         self.chat = chat
 
