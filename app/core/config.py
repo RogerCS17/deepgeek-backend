@@ -8,4 +8,4 @@ class ConfigLoader:
     @staticmethod
     def load_api_key():
         load_dotenv()
-        return os.getenv("API_KEY")
+        return {"Deepseek": os.getenv("API_KEY_DEEPSEEK"), "GPT": os.getenv("API_KEY_GPT")}

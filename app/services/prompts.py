@@ -7,8 +7,8 @@ from langchain.prompts import (
 
 class PromptGenerator:
     """Genera el prompt basado en las respuestas del usuario."""
-
-    def generate_prompt(self, respuestas: dict):
+    @staticmethod
+    def generate_prompt(respuestas: dict):
         system_prompt = """
         Eres un experto en comics de la editorial {editorial}. 
         Eres capaz de analizar las respuestas y determinar qué héroe encaja mejor.
@@ -33,3 +33,11 @@ class PromptGenerator:
         chat_prompt = ChatPromptTemplate.from_messages([system_message, human_message])
 
         return chat_prompt.format_messages(**respuestas)
+
+class PromptImageGenerator:
+    """Genera el prompt para generar la imagen de un superhéroe"""
+    @staticmethod
+    def generate_prompt(editorial, superheroe):
+        return f"""
+        Crea una versión alternativa de {superheroe} de la editorial {editorial} con un traje innovador, nuevos patrones y materiales avanzados. Puede tener colores diferentes y un diseño más dinámico. La escena debe ser épica, con un fondo de metrópolis futurista, dimensión mística o campo de batalla intergaláctico. Sin texto ni símbolos reconocibles.
+        """.strip()
